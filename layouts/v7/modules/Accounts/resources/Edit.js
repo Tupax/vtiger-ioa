@@ -10,6 +10,102 @@
 Vtiger_Edit_Js("Accounts_Edit_Js",{
    
 },{
+	registerEvents: function() {
+
+
+
+
+
+        console.log('Edit view page for accounts');
+
+		const select_contacto = document.querySelector('[data-fieldname="modo_de_contacto"]');
+		const input_contacto = document.getElementById('s2id_autogen12');
+		const field_contacto_otro = document.querySelector('[name="modo_de_contacto_otro"]');
+
+		// Valores por defecto
+		field_contacto_otro.disabled = true;
+		field_contacto_otro.style.backgroundColor =("background-color", "#80808030");
+
+		// const event = new Event('change');
+		// select_contacto.dispatchEvent(event);
+		document.body.addEventListener('click', (event) => {
+			// Check if the target of the click event is the select element
+			// if (event.target === select) {
+			//   return; // Do nothing if the click is on the select element
+			// }
+			
+			// // Set the selectedIndex property to the current selected index
+			// select.selectedIndex = select.selectedIndex;
+			console.log("click");
+			if (event.target.matches('#select2-drop, #select2-drop-mask')) {
+				return; // Do nothing if the click is on one of the two divs
+			  }
+			  
+			// Dispatch a change event
+			const changeEvent = new Event('change');
+			select_contacto.dispatchEvent(changeEvent);
+		  });
+
+
+		// const c1 = document.getElementById('select2-results-12');
+		// const c2 = document.getElementById('select2-drop-mask');
+		// c1.addEventListener('click', (event) => { 
+		// 	select_contacto.dispatchEvent(changeEvent);
+		// });
+
+		// c2.addEventListener('click', (event) => { 
+		// 	select_contacto.dispatchEvent(changeEvent);
+		// });
+
+
+		select_contacto.addEventListener('change', (event) => {
+		// input_contacto.addEventListener("input", function() {
+			// console.log("cambio");
+			
+			const selectedOption = event.target.value;
+			// console.log(`Selected option: ${selectedOption}`);
+			
+		if (selectedOption === "Otro") {
+
+			field_contacto_otro.disabled = false;
+			field_contacto_otro.style.backgroundColor =("background-color", "#ffffff");
+		} else {
+
+			field_contacto_otro.disabled = true;
+			field_contacto_otro.style.backgroundColor =("background-color", "#80808030");
+
+		}
+		});
+		
+
+		// const myDiv = document.getElementById('s2id_autogen11');
+
+		// // Create a new MutationObserver instance
+		// const observer = new MutationObserver((mutations) => {
+		// mutations.forEach((mutation) => {
+		// 	if (mutation.attributeName === 'class') {
+
+		// 		select_contacto.dispatchEvent(new Event('change'));
+
+		// 	}
+		// });
+		// });
+
+		// Configure the observer to watch for changes to the class attribute
+		// const config = { attributes: true, attributeFilter: ['class'] };
+		// observer.observe(myDiv, config);
+
+		// const fakeselect = document.getElementById('select2-chosen-12');
+
+		// fakeselect.addEventListener('blur', (event) => {
+		//   console.log('Div lost focus');
+		// });
+		
+
+
+
+
+    },
    
 	//This will store the editview form
 	editViewForm : false,

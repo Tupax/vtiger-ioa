@@ -48,6 +48,9 @@ $languageStrings = array(
 	'LBL_COPY_BILLING_ADDRESS' => 'Copiar Dirección Facturación',
     'LBL_IMAGE_INFORMATION' => 'Foto de Perfil',
     'Organization Image' => 'Organización de imagen',
+    'tipo_de_atencion' => 'Tipo de Atención',
+    'modo_de_contacto' => 'M D C',
+    'modo_de_contacto_otro' => 'M D C O',
 
   'Other Phone' => 'Teléfono Secundario',
   'Phone' => 'Teléfono Principal',
