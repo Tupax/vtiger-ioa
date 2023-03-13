@@ -824,3 +824,7 @@ body{
     height: 1px;
 }
 
+
+.app-navigator-container{
+    background-color: green;
+}

@@ -1,0 +1,74 @@
+
+
+    Install Documentation Report Issues GitHub 
+
+If you find Xdebug useful, please consider supporting the project.
+Installation Wizard
+Summary
+
+    Xdebug installed: 2.8.1
+    Server API: Apache 2.0 Handler
+    Windows: no
+    Zend Server: no
+    PHP Version: 7.4.33
+    Zend API nr: 320190902
+    PHP API nr: 20190902
+    Debug Build: no
+    Thread Safe Build: no
+    OPcache Loaded: no
+    Configuration File Path: /usr/local/etc/php
+    Configuration File: /usr/local/etc/php/php.ini
+    Extra Configuration Files Path: /usr/local/etc/php/conf.d
+    Extra Configuration Files:
+    /usr/local/etc/php/conf.d/custom.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-exif.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-gd.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-imagick.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-imap.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-ldap.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-mysqli.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-redis.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-runkit7.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-soap.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-ssh2.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    /usr/local/etc/php/conf.d/docker-php-ext-zip.ini
+    Extensions directory: /usr/local/lib/php/extensions/no-debug-non-zts-20190902
+
+Instructions
+
+    Download xdebug-3.1.6.tgz
+    Install the pre-requisites for compiling PHP extensions.
+    On your Ubuntu system, install them with: apt-get install php-dev autoconf automake
+    Unpack the downloaded file with tar -xvzf xdebug-3.1.6.tgz
+    Run: cd xdebug-3.1.6
+
+    Run: phpize (See the FAQ if you don't have phpize).
+
+    As part of its output it should show:
+
+    Configuring for:
+    ...
+    Zend Module Api No:      20190902
+    Zend Extension Api No:   320190902
+
+    If it does not, you are using the wrong phpize. Please follow this FAQ entry and skip the next step.
+    Run: ./configure
+    Run: make
+    Run: cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20190902
+    Update /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini to have the line:
+    zend_extension = xdebug
+    Restart the Apache Webserver
+
+Enabling Features
+
+Now Xdebug is installed, you can enable its features. Please refer to the dedicated sections in the documentation about information on how to enable and configure these Xdebug features. Where these sections refer to php.ini or similar, please remember to use /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini:
+
+    Development Helpers — help you get better error messages and obtain better information from PHP's built-in functions.
+    Step Debugging — allows you to interactively walk through your code to debug control flow and examine data structures.
+    Profiling — allows you to find bottlenecks in your script and visualize those with an external tool.
+
+This site and all of its contents are Copyright © 2002-2023 by Derick Rethans.
+All rights reserved.
